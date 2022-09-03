@@ -25,8 +25,8 @@ interface InputProps {
     } = props;
   
     return (
-      <div className={clsx(className, "my-3")}>
-        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+      <div className={className}>
+        <label htmlFor={id} className="block text-base font-medium text-sky-600">
           {label}
         </label>
         <div className="mt-1 relative rounded-md shadow-sm">
@@ -71,7 +71,7 @@ interface InputProps {
     } = props;
   
     return (
-      <div className={clsx("mb-3", className)}>
+      <div className={className}>
         <label htmlFor={id} className="block text-sm font-medium text-gray-700">
           {label}
         </label>
@@ -110,7 +110,7 @@ interface InputProps {
   
   export function TextareaField(props: InputProps) {
     return (
-      <div className={clsx(props.className)}>
+      <div className={props.className}>
         <label
           htmlFor="comment"
           className="block text-sm font-medium text-gray-700"

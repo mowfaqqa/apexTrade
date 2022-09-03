@@ -22,9 +22,9 @@ export const AuthLayout = ({ children }: AppProps): JSX.Element => {
       <meta name="author" content="ApexTrader" />
       <link rel="icon" type="image/png" href="/icons/favicon.png"></link>
     </Head> 
-    <div className='bg-gray-400 h-full overflow-x-hidden'>
+    <div className="h-[100vh] bg-[url('/assets/background.jpg')] bg-cover bg-no-repeat overflow-x-hidden">
         <Navbar />
-        <div>
+        <div className='max-w-7xl mx-auto'>
             {children}
         </div>
     </div>

@@ -2,29 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  /* buttons classes */
+  .button {
+    @apply inline-flex cursor-pointer justify-center items-center text-[18px] font-semibold gap-1 px-4 py-3 rounded-lg leading-[24px];
   }
-  body {
-    color: white;
-    background: black;
+
+  .button-primary {
+    @apply bg-sky-400 text-white;
   }
+
+  .button-primary:hover {
+    @apply bg-sky-600;
+  }
+
+  .button-primary:focus {
+    @apply ring ring-offset-0 ring-sky-600;
+  }
+
+  .button-primary:active {
+    @apply bg-sky-400;
+  }
+
+  
 }
