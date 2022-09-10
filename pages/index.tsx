@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import About from '../components/About/About'
+import Procedure from '../components/HowItWorks/Procedure'
 import Navbar from '../components/Navbar'
 import SubscriptionPlans from '../components/SubscriptionPlans/SubscriptionPlans'
 import styles from '../styles/Home.module.css'
@@ -19,6 +21,8 @@ const Home: NextPage = () => {
           <h1 className='text-yellow-600 text-5xl font-bold'>APEXTRADER- TRADING EFFICIENTLY, SECURELY AND RELIABLE</h1>
         </div>
       </div>
+      <About />
+      <Procedure />
       <SubscriptionPlans />
     </div>
   )

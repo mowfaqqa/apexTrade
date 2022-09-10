@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
@@ -7,9 +8,9 @@ const Navbar = () => {
             <h1 className='text-4xl font-bold'>Apex Traders</h1>
         </div>
         <div className='flex list-none items-center'>
-            <li className='px-3 text-base'>Home</li>
-            <li className='px-3 text-base'>About</li>
-            <li className='px-3 text-base'>Login</li>
+            <Link href='/'><li className='px-3 text-base cursor-pointer'>Home</li></Link>
+            <Link href='/about/' passHref><li className='px-3 text-base cursor-pointer'>About</li></Link>
+            <Link href='/auth/login'><li className='px-3 text-base cursor-pointer'>Login</li></Link>
         </div>
     </div>
   )
