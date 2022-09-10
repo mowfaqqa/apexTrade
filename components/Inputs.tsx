@@ -26,7 +26,7 @@ interface InputProps {
   
     return (
       <div className={className}>
-        <label htmlFor={id} className="block text-base font-medium text-sky-600">
+        <label htmlFor={id} className="block text-base font-medium text-yellow-600">
           {label}
         </label>
         <div className="mt-1 relative rounded-md shadow-sm">
@@ -72,7 +72,7 @@ interface InputProps {
   
     return (
       <div className={className}>
-        <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+        <label htmlFor={id} className="block text-sm font-medium text-yellow-600">
           {label}
         </label>
         <div className="mt-1 relative rounded-md shadow-sm">
@@ -113,7 +113,7 @@ interface InputProps {
       <div className={props.className}>
         <label
           htmlFor="comment"
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-yellow-600"
         >
           {props.label}
         </label>

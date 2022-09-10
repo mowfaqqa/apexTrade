@@ -9,20 +9,18 @@
   }
 
   .button-primary {
-    @apply bg-sky-400 text-white;
+    @apply bg-stone-700 text-white;
   }
 
   .button-primary:hover {
-    @apply bg-sky-600;
+    @apply bg-stone-500;
   }
 
   .button-primary:focus {
-    @apply ring ring-offset-0 ring-sky-600;
+    @apply ring ring-offset-0 ring-gray-50;
   }
 
   .button-primary:active {
-    @apply bg-sky-400;
+    @apply bg-stone-500;
   }
-
-  
 }

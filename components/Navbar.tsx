@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='flex py-4 px-16 justify-between items-center bg-transparent text-gray-50'>
+    <div className='flex py-4 px-16 justify-between items-center bg-transparent text-yellow-600'>
         <div>
             <h1 className='text-4xl font-bold'>Apex Traders</h1>
         </div>
