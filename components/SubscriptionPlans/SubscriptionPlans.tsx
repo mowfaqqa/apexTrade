@@ -4,7 +4,7 @@ import Button from '../Button';
 
 const SubscriptionPlans = () => {
   return (
-    <div className='bg-gray-100 px-4 py-5'>
+    <div className='py-5 max-w-6xl mx-auto px-10'>
         <h1 className='text-gray-700 text-center text-4xl font-bold'>Our Investment Plans</h1>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-2 my-4'>
         <div className='px-4 mx-3 bg-white border border-solid border-gray-300 rounded-xl'>

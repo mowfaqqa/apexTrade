@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react'
 import Navbar from './Navbar';
+import ResNavbar from './ResponsiveNavbar';
 
 interface AppProps {
     children: React.ReactNode;
@@ -24,6 +25,7 @@ export const AuthLayout = ({ children }: AppProps): JSX.Element => {
     </Head> 
     <div className="h-[100vh] bg-[url('/assets/background.jpg')] bg-cover bg-no-repeat overflow-x-hidden">
         <Navbar />
+        <ResNavbar />
         <div className='max-w-7xl mx-auto'>
             {children}
         </div>

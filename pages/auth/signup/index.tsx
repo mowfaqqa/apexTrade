@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 
 const SignUp = () => {
   return (
-    <div className='bg-stone-900 my-10 rounded-lg py-8'> 
+    <div className='bg-stone-900 my-10 rounded-lg py-8 px-4 mx-3'> 
     <div className='text-center'>
         <h1 className='text-4xl font-bold text-yellow-600'>Create An Account</h1>
         <p className='text-base text-yellow-600'>Have an account? <span><Link href="/auth/login" passHref><a className='text-stone-400'> Log In</a></Link></span></p>
