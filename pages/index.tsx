@@ -10,6 +10,7 @@ import SubscriptionPlans from '../components/SubscriptionPlans/SubscriptionPlans
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router';
 import ResNavbar from '../components/ResponsiveNavbar';
+import Footer from '../components/Footer'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -39,6 +40,7 @@ const Home: NextPage = () => {
       <Procedure />
       <SubscriptionPlans />
       <Consultants />
+      <Footer />
     </div>
   )
 }
