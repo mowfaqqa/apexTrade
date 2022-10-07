@@ -11,6 +11,7 @@ import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router';
 import ResNavbar from '../components/ResponsiveNavbar';
 import Footer from '../components/Footer'
+import CryptoChart from '../components/CryptoChart/CryptoChart'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -37,6 +38,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <About />
+      <CryptoChart />
       <Procedure />
       <SubscriptionPlans />
       <Consultants />
