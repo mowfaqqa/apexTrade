@@ -14,7 +14,9 @@ const About = () => {
             </div>
         <div className='flex-1 px-5'>
         <h2 className='text-center text-4xl font-semibold text-yellow-600 py-2 flex items-center justify-center'><PenTool size={35}/> About Apex Trade <PenTool size={35}/></h2>
-            <p className='text-gray-500 py-4 text-justify '>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, voluptas. Consequatur quod non explicabo in blanditiis! Doloremque natus, fugit vel voluptatibus error nemo eligendi ratione a minus, quam excepturi numquam, rerum praesentium quis facere odit necessitatibus consectetur quia corporis sed veritatis amet. Harum, velit quod consectetur sequi accusamus recusandae soluta voluptate? Cum consequuntur magni repellendus nihil voluptatibus voluptates quod expedita itaque </p>
+            <p className='text-gray-500 py-4 text-justify '>Apextraders is a company established in 2020 with the Sole purpose of exploring new financial terrains and conquering. We are an asset management company stretching across the globe through strategic trading and accurate analysis.
+
+Are you looking for the highest returns on your investments? Apextraders- an automated online investment platform is a top secured and profitable option for you.  </p>
             <Button
             className="bg-yellow-600 text-white"
             onClick={() => router.push("/about")}

@@ -8,7 +8,7 @@ import ResNavbar from '../components/ResponsiveNavbar';
 const AboutPage = () => {
   return (
     <>
-    <div className="h-[145vh] md:h-[100vh] bg-[url('/assets/barchart.jpg')] bg-cover bg-no-repeat">
+    <div className="h-full bg-[url('/assets/barchart.jpg')] bg-cover bg-no-repeat">
         <Navbar />
         <ResNavbar />
         <div className='flex flex-col justify-center mt-28 md:mt-52 w-[50%] mx-8 md:mx-36'>
@@ -19,8 +19,32 @@ const AboutPage = () => {
             <Image src="/assets/bitcoin.jpg" width={500} height={300} alt="bitcoin" />
             </div>
         <div className='px-4'>
-        <h2 className='text-center text-4xl font-semibold text-white py-2 flex items-center justify-center'><PenTool size={35}/> About Apex Trade <PenTool size={35}/></h2>
-            <p className='text-gray-500 py-4 text-justify '>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, voluptas. Consequatur quod non explicabo in blanditiis! Doloremque natus, fugit vel voluptatibus error nemo eligendi ratione a minus, quam excepturi numquam, rerum praesentium quis facere odit necessitatibus consectetur quia corporis sed veritatis amet. Harum, velit quod consectetur sequi accusamus recusandae soluta voluptate? Cum consequuntur magni repellendus nihil voluptatibus voluptates quod expedita itaque </p>
+        <h2 className='text-center text-4xl font-semibold text-orange-400 py-2 flex items-center justify-center'><PenTool size={35}/> About Apex Trade <PenTool size={35}/></h2>
+            <p className='text-gray-300 py-4 text-justify '>Apextraders is a company established in 2020 with the Sole purpose of exploring new financial terrains and conquering. We are an asset management company stretching across the globe through strategic trading and accurate analysis.
+
+Are you looking for the highest returns on your investments? Apextraders- an automated online investment platform is a top secured and profitable option for you. 
+
+
+
+
+ We are a trading company specialized in cryptocurrency trading, especially Bitcoin and Usdt Among many others. We also engage in binary options as well as forex trading, which is the largest financial market and the only market known to operate 24/7. 
+
+the team of professional traders focusing mainly on Bitcoin and other cryptocurrencies trading over multiple Exchanges and markets. Thanks to the extraordinary diversification of our finances, we can deliver steady returns for our investors.
+
+We stand as a strong bridge eliminating the gap between financial freedom and bankruptcy generating pasive income on a consistent basis within a safe, secure and encrypted personalized wallet address.
+
+
+ The foreign exchange market alone has a daily turnover of about $5.6 trillion and more, and we guarantee you a piece of the pie. What we do is trade for our clients who are inexperienced in the market and cannot make the best trading decisions due to the complex nature of the market and the need for quick analytical skills to make a profit. We trade for our clients and they monitor the progress of the investment as it progresses.
+
+We have a range of long term strategies aimed at achieving a consistent stream of income to suite whatever size of investment portfolio you wish to have.
+
+
+We intend to generate passive cash flow for our investor to eliminate the reliance on a day&apos;s work to meet the basic needs of our customers. We are here to improve your standard of living as our investor so you can maximize their full potential with us.
+
+
+
+With Apextraders, investors choose one of our three simple investment designs, make a deposit and sit back while our experts take the control. Apextradersofficial website is fully automated. Our clients can enjoy the first time experience. If you are looking for a steady and secure investment platform, then Apextraders is the best option available right now. 
+Join apextraders today and let our professional service help you succeed in this volatile crypto markets! </p>
             </div>
         </div>
     </div>
