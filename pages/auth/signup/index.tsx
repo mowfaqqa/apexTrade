@@ -41,7 +41,6 @@ const SignUp = () => {
     const user = userCredential.user;
     router.push('/dashboard');
 
-    set(ref())
     // ...
   })
   .catch((error) => {
