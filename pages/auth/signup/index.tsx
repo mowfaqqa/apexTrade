@@ -7,7 +7,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { useRouter } from 'next/router';
-import { app } from '../../../lib/firebase';
+import { app, database } from '../../../lib/firebase';
+import { ref, set } from 'firebase/database';
 
 const SignUp = () => {
   const auth = getAuth(app)
@@ -35,12 +36,16 @@ const SignUp = () => {
   onSubmit: (values) => {
     const email = values.email;
     const password = values.newPassword
+    const name = values.name
     createUserWithEmailAndPassword(auth, email, password,)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
     router.push('/dashboard');
-
+    set(ref(database, 'users/' + user.uid), {
+      name : name,
+      email : email
+    })
     // ...
   })
   .catch((error) => {
