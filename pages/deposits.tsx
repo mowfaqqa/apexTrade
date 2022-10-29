@@ -2,6 +2,7 @@ import React from 'react'
 import Tab from '../components/Tab'
 import AppLayout from '../components/AppLayout';
 import Bitcoin from '../components/Deposit/Bitcoin';
+import BankTransfer from '../components/Deposit/BankTransfer';
 
 const Deposits = () => {
     const TABS = React.useMemo(
@@ -12,12 +13,8 @@ const Deposits = () => {
             },
             {
                 label: "Bank Transfer",
-                content: <h1>Bank Transfer</h1>
+                content: <BankTransfer />
             },
-            {
-                label: "Fund History",
-                content: <h1>Fund History</h1>
-            }
         ],[]
     )
   return (
