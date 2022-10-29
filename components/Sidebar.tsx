@@ -4,7 +4,7 @@ import { Home, CreditCard, Folder, User } from 'react-feather';
 const Sidebar = () => {
     const navigation = [
         { name: 'Dashboard', href: '/dashboard', icon: Home, current: true },
-        { name: 'Deposit', href: '/deposit', icon: CreditCard, current: false },
+        { name: 'Deposits', href: '/deposits', icon: CreditCard, current: false },
         { name: 'Withdrawal', href: '/withdraw', icon: Folder, current: false },
         { name: 'Account', href: '/account', icon: User, current: false },
     ];

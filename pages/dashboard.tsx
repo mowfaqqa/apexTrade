@@ -1,7 +1,6 @@
 import React from 'react'
 import AppLayout from '../components/AppLayout';
 import CryptoChart from '../components/CryptoChart/CryptoChart'
-import { DashboardLayout } from '../components/DashboardLayout';
 
 const Dashboard = () => {
   return (
