@@ -5,8 +5,8 @@ const Sidebar = () => {
     const navigation = [
         { name: 'Dashboard', href: '/dashboard', icon: Home, current: true },
         { name: 'Deposits', href: '/deposits', icon: CreditCard, current: false },
-        { name: 'Withdrawal', href: '/withdraw', icon: Folder, current: false },
-        { name: 'Account', href: '/account', icon: User, current: false },
+        { name: 'Withdrawal', href: '/withdrawal', icon: Folder, current: false },
+        { name: 'Account', href: '/profile', icon: User, current: false },
     ];
     const classNames = (...classes : any) => {
         return classes.filter(Boolean).join(' ')

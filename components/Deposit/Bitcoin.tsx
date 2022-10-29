@@ -5,9 +5,9 @@ import { InputField } from '../Inputs'
 
 const Bitcoin = () => {
   return (
-    <div>
+    <div className='max-w-7xl mx-auto'>
         <h1 className='font-semibold flex items-center text-2xl'> <ChevronRight size={20}/> <span className='mx-1'>Bitcoin</span></h1>
-        <h2 className='text-2xl font-bold px-2 py-4'>kjiuwfr92f78384fvit382t7297fi9028fnfiwg4202847gfii</h2>
+        <h2 className='text-base lg:text-2xl font-bold px-2 py-4'>kjiuwfr92f78384fvit382t7297fi9028fnfiwg4202847gfii</h2>
         <p className='px-2'>To make payment from your trading accoutnt please use our wallet address above and click on <span className='text-orange-500'>Make payment</span></p>
         <div>
             <p className='p-2 bg-orange-300 flex items-start  text-orange-500 text-lg font-medium'>
