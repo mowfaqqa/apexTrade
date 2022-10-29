@@ -78,13 +78,6 @@ const SignUp = () => {
            onBlur: formik.handleBlur("name"),
          }}
         />
-        {/* <InputField 
-         required
-         id="lastName"
-         type="text"
-         label="Last Name"
-         placeholder="Enter Last Name"
-         /> */}
          </div>
          <InputField 
          required
