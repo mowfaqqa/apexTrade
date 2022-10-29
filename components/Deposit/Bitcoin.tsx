@@ -2,6 +2,7 @@ import React from 'react'
 import { AlertCircle, ChevronRight } from 'react-feather'
 import Button from '../Button'
 import { InputField } from '../Inputs'
+import { notifySuccess } from '../../lib/notifications';
 
 const Bitcoin = () => {
   return (
@@ -44,7 +45,7 @@ const Bitcoin = () => {
                 />
 
                 <div>
-                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800">Submit</Button>
+                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800" onCLick={() => notifySuccess("testing testing")}>Submit</Button>
                 </div>
             </div>
         </div>

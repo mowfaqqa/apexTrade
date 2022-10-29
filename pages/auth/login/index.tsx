@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app, database } from '../../../lib/firebase';
 import { ref, update } from 'firebase/database';
+import { notifySuccess, notifyError } from '../../../lib/notifications';
 
 
 const Login = () => {
@@ -40,6 +41,7 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    notifySuccess('User is logged in successfully')
     router.push('/dashboard');
     const dt = new Date()
     update(ref(database, 'users/' + user.uid), {
@@ -51,7 +53,7 @@ const Login = () => {
   .catch((error) => {
     // const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorMessage)
+    notifyError(errorMessage)
     // ..
   });
   }

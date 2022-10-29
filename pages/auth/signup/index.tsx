@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useRouter } from 'next/router';
 import { app, database } from '../../../lib/firebase';
 import { ref, set } from 'firebase/database';
+import { notifySuccess, notifyError } from '../../../lib/notifications';
 
 const SignUp = () => {
   const auth = getAuth(app)
@@ -17,11 +18,13 @@ const SignUp = () => {
     initialValues : {
       name: "",
       email: "",
-      newPassword: ""
+      newPassword: "",
+      walletAddress: ""
     },
     validationSchema : yup.object({
       email: yup.string().email().required("Email is required").label("Email Address"),
       name: yup.string().required().label("Name"),
+      walletAddress: yup.string().required().label("Wallet Address"),
       newPassword: yup
       .string()
       .label("New password")
@@ -41,17 +44,18 @@ const SignUp = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    router.push('/dashboard');
     set(ref(database, 'users/' + user.uid), {
       name : name,
       email : email
     })
+    notifySuccess("Signup successfull")
+    router.push('/dashboard');
     // ...
   })
   .catch((error) => {
     // const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorMessage)
+    notifyError(errorMessage)
     // ..
   });
   }
@@ -94,13 +98,20 @@ const SignUp = () => {
          }}
          />
 
-         {/* <InputField 
+         <InputField 
          required
-         id="dateOfBirth"
-         type="date"
-         label="Date of Birth"
-         placeholder="Date of Birth"
-         /> */}
+         id="walletAddress"
+         type="text"
+         label="Wallet Address"
+         placeholder="your wallet address"
+         error={!!formik.touched.walletAddress && !!formik.errors.walletAddress}
+         helperText={!!formik.touched.walletAddress && formik.errors.walletAddress}
+         inputProps={{
+           value: formik.values.walletAddress,
+           onChange: formik.handleChange("walletAddress"),
+           onBlur: formik.handleBlur("walletAddress"),
+         }}
+         />
          <InputField 
          required
          id="newPassword"
