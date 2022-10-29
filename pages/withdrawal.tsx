@@ -2,6 +2,7 @@ import React from 'react'
 import AppLayout from '../components/AppLayout';
 import Tab from '../components/Tab';
 import BitcoinWithdrawal from '../components/Withdrawal/BitcoinWithdrawal';
+import WithdrawalTransfer from '../components/Withdrawal/WithdrawalTransfer';
 
 const Withdrawal = () => {
     const TABS = React.useMemo(
@@ -12,7 +13,7 @@ const Withdrawal = () => {
             },
             {
                 label: "Withdrawal Request (Bank Transfer)",
-                content: <h1>Transfer</h1>
+                content: <WithdrawalTransfer />
             },
         ],[]
     )
