@@ -1,8 +1,21 @@
 import React from 'react'
 import AppLayout from '../components/AppLayout';
 import CryptoChart from '../components/CryptoChart/CryptoChart'
+import { db } from '../lib/firebase';
+import { collection, getDocs } from "firebase/firestore"
 
 const Dashboard = () => {
+  const [dashBoard, setDashBoard] = React.useState([])
+  const dashBoardData = collection(db, "dashboard")
+  React.useEffect(() => {
+    const getDashboardInfo = async () =>  {
+      const res = await getDocs(dashBoardData);
+      const data: any = res.docs.map((doc : any) => ({...doc.data(), id: doc.id}))
+      setDashBoard(data) 
+    }
+    getDashboardInfo()
+  }, [dashBoardData])
+
   return (
     <div className="py-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-5">

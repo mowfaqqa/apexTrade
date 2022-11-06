@@ -2,9 +2,36 @@ import React from 'react'
 import { AlertCircle, ChevronRight } from 'react-feather'
 import Button from '../Button'
 import { InputField } from '../Inputs'
-import { notifySuccess } from '../../lib/notifications';
+import { notifySuccess, notifyError } from '../../lib/notifications';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { addDoc, collection, getDocs } from "firebase/firestore"
+import { db } from '../../lib/firebase';
 
 const Bitcoin = () => {
+    const depositData = collection(db, "dashboard")
+    const createBitcoinDeposit = async (values: any) => {
+        await addDoc( depositData ,values)
+    }
+    const formik = useFormik({
+        initialValues : {
+            depositName: '',
+            email: '',
+            depositAmount: 0,
+            senderWalletAddress: '',
+            description: ''
+        },
+        validationSchema : yup.object({
+            email: yup.string().email().required("Email is required").label("Email Address"),
+            depositName: yup.string().required().label('Deposit Name'),
+            depositAmount: yup.number().required().label('Deposit Amount'),
+            senderWalletAddress : yup.string().required().label('Senders Wallet Address'),
+            description : yup.string().required().label('Description'),
+        }),
+        onSubmit: (values) => {
+            createBitcoinDeposit(values).then(() => notifySuccess("Request Sent Sucessfully")).catch(() => notifyError("Deposit Request Failed !!"));
+        }
+    })
   return (
     <div className='max-w-7xl mx-auto'>
         <h1 className='font-semibold flex items-center text-2xl'> <ChevronRight size={20}/> <span className='mx-1'>Bitcoin</span></h1>
@@ -20,32 +47,67 @@ const Bitcoin = () => {
                 id='depositName'
                 placeholder='name....'
                 type='text'
+                error={!!formik.touched.depositName && !!formik.errors.depositName}
+                helperText={!!formik.touched.depositName && formik.errors.depositName}
+                inputProps={{
+                  value: formik.values.depositName,
+                  onChange: formik.handleChange("depositName"),
+                  onBlur: formik.handleBlur("depositName"),
+                }}
                 />
                 <InputField 
                 label='Email'
                 id='email'
                 placeholder='email address....'
                 type='text'
+                error={!!formik.touched.email && !!formik.errors.email}
+                helperText={!!formik.touched.email && formik.errors.email}
+                inputProps={{
+                  value: formik.values.email,
+                  onChange: formik.handleChange("email"),
+                  onBlur: formik.handleBlur("email"),
+                }}
                 />
                 <InputField 
                 label='Deposit Amount'
                 id='depositAmount'
                 placeholder='amount'
                 type='number'
+                error={!!formik.touched.depositAmount && !!formik.errors.depositAmount}
+                helperText={!!formik.touched.depositAmount && formik.errors.depositAmount}
+                inputProps={{
+                  value: formik.values.depositAmount,
+                  onChange: formik.handleChange("depositAmount"),
+                  onBlur: formik.handleBlur("depositAmount"),
+                }}
                 />
                 <InputField 
                 label='Senders Wallet Address'
-                id='sendersWalletAddress'
+                id='senderWalletAddress'
                 placeholder='Enter your wallet address'
+                error={!!formik.touched.senderWalletAddress && !!formik.errors.senderWalletAddress}
+                helperText={!!formik.touched.senderWalletAddress && formik.errors.senderWalletAddress}
+                inputProps={{
+                  value: formik.values.senderWalletAddress,
+                  onChange: formik.handleChange("senderWalletAddress"),
+                  onBlur: formik.handleBlur("senderWalletAddress"),
+                }}
                 />
                 <InputField 
                 label='Description (optional)'
                 id='description'
                 placeholder='Enter Description...'
+                error={!!formik.touched.description && !!formik.errors.description}
+                helperText={!!formik.touched.description && formik.errors.description}
+                inputProps={{
+                  value: formik.values.description,
+                  onChange: formik.handleChange("description"),
+                  onBlur: formik.handleBlur("description"),
+                }}
                 />
 
                 <div>
-                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800" onCLick={() => notifySuccess("testing testing")}>Submit</Button>
+                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800" onCLick={formik.handleSubmit}>Submit</Button>
                 </div>
             </div>
         </div>

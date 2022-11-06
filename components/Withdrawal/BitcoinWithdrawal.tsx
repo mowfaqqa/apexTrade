@@ -2,8 +2,32 @@ import React from 'react'
 import { AlertCircle } from 'react-feather'
 import Button from '../Button';
 import { InputField, SelectField } from '../Inputs';
+import { notifySuccess, notifyError } from '../../lib/notifications';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { addDoc, collection, getDocs } from "firebase/firestore"
+import { db } from '../../lib/firebase';
 
 const BitcoinWithdrawal = () => {
+    const withdrawalData = collection(db, "dashboard")
+    const createBitcoinWithdrawalRequest = async (values : any) => {
+        await addDoc(withdrawalData, values)
+    }
+
+    const formik = useFormik({
+        initialValues : {
+            walletAddress : '',
+            amount : '',
+        },
+        validationSchema : yup.object({
+            walletAddress : yup.string().required().label('Wallet Address'),
+            amount: yup.number().required().label('Amount')
+        }),
+        onSubmit: (values) => {
+            createBitcoinWithdrawalRequest(values).then(() => notifySuccess('Withdrawal Request Sent Successfully')).catch(() => notifyError("Ops something went wrong sending request"))
+        }
+    })
+
   return (
     <div className='px-5'>
         <h1 className='font-bold text-base lg:text-2xl text-center'>Withdrawal Request with Bitcoin</h1>
@@ -18,18 +42,29 @@ const BitcoinWithdrawal = () => {
                 id='walletAddress'
                 placeholder='Enter your wallet address here...'
                 type='text'
+                error={!!formik.touched.walletAddress && !!formik.errors.walletAddress}
+                helperText={!!formik.touched.walletAddress && formik.errors.walletAddress}
+                inputProps={{
+                  value: formik.values.walletAddress,
+                  onChange: formik.handleChange("walletAddress"),
+                  onBlur: formik.handleBlur("walletAddress"),
+                }}
             />
             <InputField 
             label='Amount'
             id='amount'
             placeholder='enter amount'
             type='number'
+            error={!!formik.touched.amount && !!formik.errors.amount}
+            helperText={!!formik.touched.amount && formik.errors.amount}
+            inputProps={{
+              value: formik.values.amount,
+              onChange: formik.handleChange("amount"),
+              onBlur: formik.handleBlur("amount"),
+            }}
             />
-            <SelectField id='withdrawalType' label='Withdrawal Type'>
-                <option value="bitcoin" selected>Bitcoin</option>
-            </SelectField>
             <div>
-                <Button className=" mx-auto block py-2 my-5 bg-orange-300 text-white hover:bg-orange-800">Request Withdrawal</Button>
+                <Button className=" mx-auto block py-2 my-5 bg-orange-300 text-white hover:bg-orange-800" onCLick={formik.handleSubmit}>Request Withdrawal</Button>
             </div>
         </div>
         </div>

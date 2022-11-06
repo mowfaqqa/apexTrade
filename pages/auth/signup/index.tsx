@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { AuthLayout } from '../../../components/AuthLayout'
-import { InputField } from '../../../components/Inputs'
+import { InputField, SelectField } from '../../../components/Inputs'
 import Button from '../../../components/Button';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from 'formik';
@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { app, database } from '../../../lib/firebase';
 import { ref, set } from 'firebase/database';
 import { notifySuccess, notifyError } from '../../../lib/notifications';
+import { nationalities } from '../../../lib/constant';
 
 const SignUp = () => {
   const auth = getAuth(app)
@@ -19,7 +20,9 @@ const SignUp = () => {
       name: "",
       email: "",
       newPassword: "",
-      walletAddress: ""
+      walletAddress: "",
+      nationality: "",
+      gender: ""
     },
     validationSchema : yup.object({
       email: yup.string().email().required("Email is required").label("Email Address"),
@@ -97,7 +100,50 @@ const SignUp = () => {
            onBlur: formik.handleBlur("email"),
          }}
          />
-
+         <div className="relative my-5 text-yellow-600">
+            <label htmlFor="gender" className="mr-8">
+              <input
+                className="mr-2"
+                type="radio"
+                name="gender"
+                value="male"
+                onChange={formik?.handleChange}
+              />
+              Male
+            </label>
+            <label htmlFor="gender">
+              <input
+                className="mr-2"
+                type="radio"
+                name="gender"
+                value="female"
+                onChange={formik?.handleChange}
+              />
+              Female
+            </label>
+          </div>
+          <SelectField
+            type="text"
+            id="nationality"
+            label="Nationality"
+            className="mb-3"
+            error={
+              !!formik?.touched?.nationality && !!formik?.errors?.nationality
+            }
+            inputProps={{
+              value: formik?.values?.nationality,
+              onChange: formik?.handleChange("nationality"),
+              onBlur: formik?.handleBlur("nationality"),
+            }}
+            requirement={true}
+          >
+            <option value="0">Select Nationality</option>
+            {nationalities.map((item: any, index: number) => (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            ))}
+          </SelectField>
          <InputField 
          required
          id="walletAddress"
