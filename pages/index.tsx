@@ -13,6 +13,7 @@ import ResNavbar from '../components/ResponsiveNavbar';
 import Footer from '../components/Footer'
 import CryptoTable from '../components/LiveCryptoTable'
 import ImageComp from '../components/ImageComp'
+import Achievements from '../components/Achievements'
 // import CryptoChart from '../components/CryptoChart/CryptoChart'
 
 const Home: NextPage = () => {
@@ -44,6 +45,7 @@ const Home: NextPage = () => {
       <CryptoTable />
       <Procedure />
       <SubscriptionPlans />
+      <Achievements />
       <Consultants />
       <ImageComp />
       <Footer />
