@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import { Calendar, CreditCard, Layers, UserPlus } from 'react-feather'
+import { Calendar, CreditCard, Layers, Plus, UserPlus } from 'react-feather'
 
 const Achievements = () => {
   return (
     <div className=''>
-        <h1 className='text-center text-4xl font-semibold'>Our Achievements</h1>
-        <div className='max-w-[1500px] mx-auto grid grid-cols-2 md:grid-cols-4 my-3 gap-4'>
+        <h1 className='max-w-[400px] py-3 mb-4 mx-auto text-center text-4xl font-semibold  border-b-4 border-yellow-800'>Our Achievements</h1>
+        <div className='max-w-[1500px] mx-auto grid grid-cols-2 md:grid-cols-4 py-4 gap-4'>
           <div className='text-center bg-white'>
           <div className=''><Calendar size={40} className='block mx-auto text-yellow-500'/></div>
             <h3 className='text-2xl font-semibold text-yellow-500'>1356</h3>
@@ -14,7 +14,7 @@ const Achievements = () => {
           </div>
           <div className='text-center  bg-white'>
           <div className=''><UserPlus size={40} className='block mx-auto text-gray-500'/></div>
-            <h3 className='text-2xl font-semibold text-gray-500'>3000</h3>
+            <h3 className='text-2xl font-semibold text-gray-500 flex items-center justify-center'>3000 <Plus size={20} /></h3>
             <h4 className='font-bold p-2 rounded-lg bg-gray-500 text-white'>Current Investors</h4>
           </div>
           <div className='text-center bg-white'>

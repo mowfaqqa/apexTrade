@@ -5,7 +5,7 @@ import Button from '../Button';
 const SubscriptionPlans = () => {
   return (
     <div className='py-5 max-w-6xl mx-auto px-10'>
-        <h1 className='text-gray-700 text-center text-4xl font-bold'>Our Investment Plans</h1>
+        <h1 className='max-w-[400px] mx-auto py-3  border-b-4 border-yellow-800 text-gray-700 text-center text-4xl font-bold'>Our Investment Plans</h1>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-2 my-4'>
           {SUBSCRIPTIONS.map((subs: any, index: number) => (
           <div key={index} className='px-4 mx-3 my-3 bg-white border border-solid border-gray-300 rounded-xl shadow-xl'>
