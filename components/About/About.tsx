@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { BarChart, CreditCard, DollarSign, FastForward, Lock, PenTool, Users } from 'react-feather'
 import Button from '../Button'
+import ImageComp from '../ImageComp'
 
 const About = () => {
   const router = useRouter()
@@ -24,6 +25,7 @@ const About = () => {
             </div>
         </div>
         </div>
+        <ImageComp />
         <div className="bg-[url('/assets/cryptochart.jpg')] bg-cover bg-no-repeat my-4 py-4">
           <div className='max-w-7xl mx-auto px-5 text-yellow-600'>
         <h2 className='text-center text-4xl font-semibold text-yellow-600 py-2 flex items-center justify-center'>Why Choose Us?</h2>
