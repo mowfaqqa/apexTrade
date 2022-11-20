@@ -5,21 +5,26 @@ import { db } from '../lib/firebase';
 import { collection, getDocs } from "firebase/firestore"
 
 const Dashboard = () => {
-  const [dashBoard, setDashBoard] = React.useState([])
+  const [dashBoard, setDashBoard] = React.useState<any>()
   const dashBoardData = collection(db, "dashboard")
   React.useEffect(() => {
     const getDashboardInfo = async () =>  {
       const res = await getDocs(dashBoardData);
       const data: any = res.docs.map((doc : any) => ({...doc.data(), id: doc.id}))
       setDashBoard(data) 
+      dashBoard.map((item : any)  => localStorage.setItem("id", item.id))
     }
     getDashboardInfo()
-  }, [dashBoardData])
+  }, [dashBoardData, dashBoard])
 
+  const amountData = collection(db, `dashboard/${localStorage.getItem('id')}/deposits`)
+
+  
+ 
   return (
     <div className="py-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-5">
-        <h1 className="text-2xl font-semibold text-gray-900">Hello Muwaffaq</h1>
+        <h1 className="text-2xl font-semibold text-gray-900">Hello</h1>
       </div>
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 md:px-2">
       <div className='block lg:flex flex-column lg:flex-row md:items-center md:justify-between'>

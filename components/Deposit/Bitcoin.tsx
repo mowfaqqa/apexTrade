@@ -5,24 +5,22 @@ import { InputField } from '../Inputs'
 import { notifySuccess, notifyError } from '../../lib/notifications';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { addDoc, collection, getDocs } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, setDoc, } from "firebase/firestore"
 import { db } from '../../lib/firebase';
 
 const Bitcoin = () => {
-    const depositData = collection(db, "dashboard")
+    const depositDataRef = collection(db, "dashboard", "deposits", "bank")
     const createBitcoinDeposit = async (values: any) => {
-        await addDoc( depositData ,values)
+        await setDoc(doc(depositDataRef) ,values)
     }
     const formik = useFormik({
         initialValues : {
             depositName: '',
-            email: '',
             depositAmount: 0,
             senderWalletAddress: '',
-            description: ''
+            description: '',
         },
         validationSchema : yup.object({
-            email: yup.string().email().required("Email is required").label("Email Address"),
             depositName: yup.string().required().label('Deposit Name'),
             depositAmount: yup.number().required().label('Deposit Amount'),
             senderWalletAddress : yup.string().required().label('Senders Wallet Address'),
@@ -53,19 +51,6 @@ const Bitcoin = () => {
                   value: formik.values.depositName,
                   onChange: formik.handleChange("depositName"),
                   onBlur: formik.handleBlur("depositName"),
-                }}
-                />
-                <InputField 
-                label='Email'
-                id='email'
-                placeholder='email address....'
-                type='text'
-                error={!!formik.touched.email && !!formik.errors.email}
-                helperText={!!formik.touched.email && formik.errors.email}
-                inputProps={{
-                  value: formik.values.email,
-                  onChange: formik.handleChange("email"),
-                  onBlur: formik.handleBlur("email"),
                 }}
                 />
                 <InputField 
@@ -107,7 +92,7 @@ const Bitcoin = () => {
                 />
 
                 <div>
-                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800" onCLick={formik.handleSubmit}>Submit</Button>
+                    <Button className="py-2 my-3 bg-orange-300 text-white hover:bg-orange-800" onClick={formik.handleSubmit}>Submit</Button>
                 </div>
             </div>
         </div>

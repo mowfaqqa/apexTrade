@@ -10,7 +10,7 @@ const SubscriptionPlans = () => {
           {SUBSCRIPTIONS.map((subs: any, index: number) => (
           <div key={index} className='px-4 mx-3 my-3 bg-white border border-solid border-gray-300 rounded-xl shadow-xl'>
             <div className='text-center py-8'>
-            <h3 className={`${subs.text} font-bold text-3xl text-center flex items-center justify-center my-3`}> <Shield size={30} className="mx-2"/> {subs.type}</h3>
+            <h3 className={`${subs.text} font-bold text-3xl text-center flex flex-col lg:flex-row items-center justify-center my-3`}> <Shield size={30} className="mx-2"/> {subs.type}</h3>
             <p className='text-gray-500'><span className='font-semibold'> Minimum Deposit</span> : {subs.minimum_amount} USD</p>
             <p className='text-gray-500'><span className='font-semibold'>Maximum Deposit</span> : {subs.maximum_amount} USD</p>
             <p className='text-gray-500'><span className='font-semibold'>Profit </span>: {subs.profit}</p>
@@ -34,7 +34,7 @@ const SUBSCRIPTIONS = [
     type: 'Marble Plan',
     minimum_amount: 200,
     maximum_amount: 500,
-    profit: "110% after 12hours",
+    profit: "20% after 12hours",
     referralBonus: 3,
     text: "text-stone-500",
   },
@@ -42,7 +42,7 @@ const SUBSCRIPTIONS = [
     type: 'Bronze Plan',
     minimum_amount: 501,
     maximum_amount: 700,
-    profit: "180% after 24hours",
+    profit: "20% after 24hours",
     referralBonus: 5,
     text: "text-amber-800",
   },
@@ -50,7 +50,7 @@ const SUBSCRIPTIONS = [
     type: 'Silver Plan',
     minimum_amount: 701,
     maximum_amount: 1000,
-    profit: "250% after 48hours",
+    profit: "20% after 48hours",
     referralBonus: 7,
     text: "text-gray-400",
   },
@@ -58,7 +58,7 @@ const SUBSCRIPTIONS = [
     type: 'Gold Plan',
     minimum_amount: 1001,
     maximum_amount: 5000,
-    profit: "380% after 72hours",
+    profit: "20% after 72hours",
     referralBonus: 10,
     text: "text-yellow-500",
   },
@@ -66,7 +66,7 @@ const SUBSCRIPTIONS = [
     type: 'Diamond Plan',
     minimum_amount: 5001,
     maximum_amount: 10000,
-    profit: "500% after 96hours",
+    profit: "20% after 96hours",
     referralBonus: 15,
     text: "text-indigo-500",
   },
@@ -74,7 +74,7 @@ const SUBSCRIPTIONS = [
     type: 'Platinum Plan',
     minimum_amount: 10001,
     maximum_amount: "Unlimited",
-    profit: "680% after 7 days",
+    profit: "20% after 7 days",
     referralBonus: 20,
     text: "text-green-400",
   },

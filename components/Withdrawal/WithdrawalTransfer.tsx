@@ -1,17 +1,17 @@
 import React from 'react'
 import { AlertCircle } from 'react-feather'
 import Button from '../Button';
-import { InputField, SelectField } from '../Inputs';
+import { InputField } from '../Inputs';
 import { notifySuccess, notifyError } from '../../lib/notifications';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { addDoc, collection, } from "firebase/firestore"
+import { addDoc, collection, doc, setDoc, } from "firebase/firestore"
 import { db } from '../../lib/firebase';
 
 const WithdrawalTransfer = () => {
-    const withdrawalData = collection(db, "dashboard")
+    const withdrawalData = collection(db, "dashboard", "withdrawals", "bank")
     const createBankWithdrawalRequest = async (values : any) => {
-        await addDoc(withdrawalData, values)
+        await setDoc(doc(withdrawalData), values)
     }
     const formik = useFormik({
         initialValues : {
@@ -91,7 +91,7 @@ const WithdrawalTransfer = () => {
         }}
         />
         <div>
-            <Button className=" mx-auto block py-2 my-5 bg-orange-300 text-white hover:bg-orange-800" onCLick={formik.handleSubmit}>Request Withdrawal</Button>
+            <Button className=" mx-auto block py-2 my-5 bg-orange-300 text-white hover:bg-orange-800"  type= 'submit' onClick={formik.handleSubmit}>Request Withdrawal</Button>
         </div>
     </div>
     </div>
