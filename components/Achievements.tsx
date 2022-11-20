@@ -4,7 +4,7 @@ import { Calendar, CreditCard, Layers, Plus, UserPlus } from 'react-feather'
 
 const Achievements = () => {
   return (
-    <div className=''>
+    <div>
         <h1 className='max-w-[400px] py-3 mb-4 mx-auto text-center text-4xl font-semibold  border-b-4 border-yellow-800'>Our Achievements</h1>
         <div className='max-w-[1500px] mx-auto grid grid-cols-2 md:grid-cols-4 py-4 gap-4'>
           <div className='text-center bg-white'>
