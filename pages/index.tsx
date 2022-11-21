@@ -14,11 +14,15 @@ import Footer from '../components/Footer'
 import CryptoTable from '../components/LiveCryptoTable'
 import ImageComp from '../components/ImageComp'
 import Achievements from '../components/Achievements'
-// import CryptoChart from '../components/CryptoChart/CryptoChart'
+import { notifyInfo } from '../lib/notifications';
 
+const NAMES = [ {name:"Jessica Walt", price: 2000}, {name:"Joey Anderson", price: 1500}, {name:"Walter Jefferson", price: 5000}, {name:"Andrew Micheals", price: 12000}, { name: "Micheala Palmer", price: 3000}]
 const Home: NextPage = () => {
   const router = useRouter()
 
+  NAMES.map((name) => {
+    setInterval(() => notifyInfo(`Investor ${name.name} just made a successful withdrawal of ${name.price}USD`), 3600000)
+  })
   return (
     <div>
       <Head>

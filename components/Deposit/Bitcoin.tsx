@@ -5,7 +5,7 @@ import { InputField } from '../Inputs'
 import { notifySuccess, notifyError } from '../../lib/notifications';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { addDoc, collection, doc, getDocs, setDoc, } from "firebase/firestore"
+import { collection, doc, setDoc, } from "firebase/firestore"
 import { db } from '../../lib/firebase';
 
 const Bitcoin = () => {

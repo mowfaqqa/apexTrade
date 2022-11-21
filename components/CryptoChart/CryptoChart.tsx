@@ -37,7 +37,7 @@ const CryptoChart = () => {
         }
         return 0
       })
-      console.log(filtered, "FILTERED")
+      // console.log(filtered, "FILTERED")
       setCurrencies(filtered)
       first.current = true;
     }
@@ -49,7 +49,7 @@ const CryptoChart = () => {
       console.log("returning on first render")
       return;
     }
-    console.log("running pair change");
+    // console.log("running pair change");
     let msg = {
       type: "subscribe",
       product_ids:  [pair],
@@ -64,7 +64,7 @@ const CryptoChart = () => {
       await fetch(historicalDataURL)
       .then((res) => res.json())
       .then((data) => (dataArr = data))
-      console.log(dataArr, "DATAARRAY")
+      // console.log(dataArr, "DATAARRAY")
       let formattedData = formatData(dataArr)
       setpastData(formattedData)
     }
@@ -83,7 +83,7 @@ const CryptoChart = () => {
   }, [pair])
 
   const handleSelect = (e : any) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     let unSubMsg = {
       type: "unsubscribe",
       product_ids:  [pair],
