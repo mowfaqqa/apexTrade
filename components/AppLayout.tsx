@@ -4,6 +4,8 @@ import Link from 'next/link';
 import ResponsiveSideBar from './ResponsiveSideBar';
 import Sidebar from './Sidebar';
 import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Button } from './Button';
+import { useAuth } from '../lib/AuthUserProvider';
 
 const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: Home, current: true },
@@ -12,8 +14,7 @@ const navigation = [
     { name: 'Account', href: '/account', icon: User, current: false },
   ]
   const userNavigation = [
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Settings', href: '/profile' },
   ]
   
   const classNames = (...classes : any) => {
@@ -24,6 +25,7 @@ const navigation = [
   }
 
 const AppLayout = ({children } : AppProps) => {
+  const {signOut} = useAuth()
     const [sidebarOpen, setSidebarOpen] = React.useState(false)
 
   return (
@@ -89,6 +91,15 @@ const AppLayout = ({children } : AppProps) => {
                           )}
                         </Menu.Item>
                       ))}
+                      <Menu.Item>
+                      <div className={classNames(
+                              'block px-4 py-2 text-sm text-gray-700'
+                              )}>
+                                  <Button onClick={signOut}>
+                                    Sign Out
+                                  </Button>
+                            </div>
+                      </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>              
