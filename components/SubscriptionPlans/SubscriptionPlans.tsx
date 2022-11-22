@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 import { Box, CheckCircle, Circle, Shield, Triangle } from 'react-feather'
 import Button from '../Button';
 
 const SubscriptionPlans = () => {
+  const router = useRouter();
   return (
     <div className='py-5 max-w-6xl mx-auto px-10'>
         <h1 className='max-w-[400px] mx-auto py-3  border-b-4 border-yellow-800 text-gray-700 text-center text-4xl font-bold'>Our Investment Plans</h1>
@@ -19,6 +21,7 @@ const SubscriptionPlans = () => {
             </div>
             <Button 
             className="bg-white text-gray-600 hover:bg-gray-600 hover:text-white mb-4 mx-auto block border border-gray-500"
+            onClick={() => {router.push('/subscription')}}
             >Subscribe</Button>
           </div>
           ))}
