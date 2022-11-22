@@ -4,6 +4,8 @@ import CryptoChart from '../components/CryptoChart/CryptoChart'
 import { db } from '../lib/firebase';
 import { collection, getDocs } from "firebase/firestore"
 import LineChart from '../components/LineChart/LineChart';
+import { useAuth } from '../lib/AuthUserProvider';
+import { useRouter } from 'next/router';
 
 const Dashboard = () => {
   const [dashBoard, setDashBoard] = React.useState<any>([])
@@ -15,8 +17,13 @@ const Dashboard = () => {
   const dashBoardbitcoinDepositData = collection(db, "dashboard", "deposits", "bitcoin")
   const dashBoardbankWithdrawalData = collection(db, "dashboard", "withdrawals", "bitcoin")
   const dashBoardbitcoinWithdrawalData = collection(db, "dashboard", "withdrawals", "bitcoin")
+  const {authUser, loading } = useAuth();
+  const router = useRouter();
 
   React.useEffect(() => {
+    if (!loading && !authUser) {
+      router.push('/login')
+    }
     const getDashboardInfo = async () =>  {
       const res = await getDocs(dashBoardDepositData);
       const data: any = res.docs.map((doc : any) => ({...doc.data(), id: doc.id}))
@@ -45,7 +52,7 @@ const Dashboard = () => {
     getBitcoinDepositInfo()
     getBitcoinWithdrawalInfo()
     getBankWithdrawalInfo()
-  }, [dashBoardDepositData,dashBoardbitcoinDepositData, bitcoinDeposit,dashBoard,bankWithdrawal, bitcoinWithdrawal, dashBoardbitcoinWithdrawalData, dashBoardbankWithdrawalData ])
+  }, [dashBoardDepositData,dashBoardbitcoinDepositData, bitcoinDeposit,dashBoard,bankWithdrawal, bitcoinWithdrawal, dashBoardbitcoinWithdrawalData, dashBoardbankWithdrawalData, authUser, loading, router ])
   // const totalWithdrawalAmount = 
   const totalDepositAmount =  dashBoard[0]?.depositAmount + bitcoinDeposit[0]?.depositAmount
   const totalWithdrawalAmount = bitcoinWithdrawal[0]?.amount + bankWithdrawal[0]?.amount
