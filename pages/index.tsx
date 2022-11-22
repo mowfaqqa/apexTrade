@@ -24,16 +24,16 @@ const Home: NextPage = () => {
     setInterval(() => notifyInfo(`Investor ${name.name} just made a successful withdrawal of ${name.price}USD`), 3600000)
   })
   return (
-    <div>
+    <>
       <Head>
         <title>Apex Traders</title>
         <meta name="description" content="Apextraders- deal site to trade your crypto currencies" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-[100vh] bg-[url('/assets/showcase.jpg')] bg-cover bg-no-repeat">
+      <div className="h-[100vh] overflow-x-hidden bg-[url('/assets/showcase.jpg')] bg-cover bg-no-repeat">
         <Navbar />
         <ResNavbar />
-        <div className='flex flex-col justify-center mt-32 md:mt-52 w-[50%] mx-8 md:mx-36'>
+        <div className='flex flex-col justify-center mt-32 md:mt-52 mx-8 md:mx-36'>
           <h1 className='text-yellow-600 text-5xl font-bold'>APEXTRADER- TRADING EFFICIENTLY, SECURELY AND RELIABLE</h1>
           <div>
             <Button
@@ -44,8 +44,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <div className='overflow-hidden'>
       <About />
-      {/* <CryptoChart /> */}
       <CryptoTable />
       <Procedure />
       <SubscriptionPlans />
@@ -53,7 +53,8 @@ const Home: NextPage = () => {
       <Consultants />
       <ImageComp />
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }
 
