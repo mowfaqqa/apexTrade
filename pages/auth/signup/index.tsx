@@ -11,10 +11,12 @@ import { app, database } from '../../../lib/firebase';
 import { ref, set } from 'firebase/database';
 import { notifySuccess, notifyError } from '../../../lib/notifications';
 import { nationalities } from '../../../lib/constant';
+import { useAuth } from '../../../lib/context/authContext';
 
 const SignUp = () => {
   const auth = getAuth(app)
-  const router = useRouter()
+  const router = useRouter();
+  const { signUp } = useAuth();
   const formik = useFormik({
     initialValues : {
       name: "",
@@ -43,10 +45,10 @@ const SignUp = () => {
     const email = values.email;
     const password = values.newPassword
     const name = values.name
-    createUserWithEmailAndPassword(auth, email, password,)
-  .then((userCredential) => {
+    signUp(auth, email, password,)
+  .then((userCredential : any) => {
     // Signed in 
-    const user = userCredential.user;
+    const user = userCredential?.user;
     set(ref(database, 'users/' + user.uid), {
       name : name,
       email : email
@@ -55,9 +57,9 @@ const SignUp = () => {
     router.push('/dashboard');
     // ...
   })
-  .catch((error) => {
+  .catch((error : any) => {
     // const errorCode = error.code;
-    const errorMessage = error.message;
+    const errorMessage = error?.message;
     notifyError(errorMessage)
     // ..
   });

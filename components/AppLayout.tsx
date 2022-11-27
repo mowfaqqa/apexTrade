@@ -5,7 +5,9 @@ import ResponsiveSideBar from './ResponsiveSideBar';
 import Sidebar from './Sidebar';
 import { Menu, Transition } from '@headlessui/react'
 import Button from './Button';
-import { useAuth } from '../lib/AuthUserProvider';
+import { useAuth } from '../lib/context/authContext';
+import { useRouter } from 'next/router';
+
 
 const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: Home, current: true },
@@ -25,8 +27,18 @@ const navigation = [
   }
 
 const AppLayout = ({children } : AppProps) => {
-  const {signOut} = useAuth()
     const [sidebarOpen, setSidebarOpen] = React.useState(false)
+    const { logOut } = useAuth();
+    const router = useRouter();
+
+    const handleLogout = async () => {
+      try {
+        await logOut();
+        router.push("/login");
+      } catch (error: any) {
+        console.log(error.message);
+      }
+    }; 
 
   return (
     <div>
@@ -95,7 +107,7 @@ const AppLayout = ({children } : AppProps) => {
                       <div className={classNames(
                               'block font-medium py-2 text-sm text-gray-700'
                               )}>
-                                  <Button className="text-sm" onClick={signOut}>
+                                  <Button className="text-sm" onClick={handleLogout}>
                                     Sign Out
                                   </Button>
                             </div>

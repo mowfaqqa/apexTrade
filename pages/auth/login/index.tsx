@@ -10,12 +10,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app, database } from '../../../lib/firebase';
 import { ref, update } from 'firebase/database';
 import { notifySuccess, notifyError } from '../../../lib/notifications';
+import { useAuth } from '../../../lib/context/authContext';
 
 
 const Login = () => {
   const auth = getAuth(app)
   const router = useRouter()
-
+  const { logIn } = useAuth();
   const formik = useFormik({
     initialValues : {
       email: "",
@@ -37,8 +38,8 @@ const Login = () => {
   onSubmit: (values) => {
     const email = values.email;
     const password = values.password
-    signInWithEmailAndPassword(auth, email, password,)
-  .then((userCredential) => {
+    logIn(auth, email, password,)
+  .then((userCredential : any) => {
     // Signed in 
     const user = userCredential.user;
     notifySuccess('User is logged in successfully')
@@ -50,7 +51,7 @@ const Login = () => {
 
     // ...
   })
-  .catch((error) => {
+  .catch((error : any) => {
     // const errorCode = error.code;
     const errorMessage = error.message;
     notifyError(errorMessage)

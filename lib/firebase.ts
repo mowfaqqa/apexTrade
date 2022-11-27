@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // Import the functions you need from the SDKs you need
 import { getDatabase } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
@@ -11,11 +12,11 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyDi0QRZY1_96PDFKLJDxtagvWZxsOhG1ww",
-  authDomain: "apextrade-project.firebaseapp.com",
+  authDomain:"apextrade-project.firebaseapp.com",
   databaseURL: "https://apextrade-project-default-rtdb.firebaseio.com",
   projectId: "apextrade-project",
   storageBucket: "apextrade-project.appspot.com",
-  messagingSenderId: "542566459712",
+  messagingSenderId:  "542566459712",
   appId: "1:542566459712:web:201200c1149f48988972a5"
 };
 

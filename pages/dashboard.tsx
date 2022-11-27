@@ -4,8 +4,8 @@ import CryptoChart from '../components/CryptoChart/CryptoChart'
 import { db } from '../lib/firebase';
 import { collection, getDocs } from "firebase/firestore"
 import LineChart from '../components/LineChart/LineChart';
-import { useAuth } from '../lib/AuthUserProvider';
 import { useRouter } from 'next/router';
+import ProtectedRoute from '../components/ProtectedRoutes';
 
 const Dashboard = () => {
   const [dashBoard, setDashBoard] = React.useState<any>([])
@@ -17,14 +17,9 @@ const Dashboard = () => {
   const dashBoardbitcoinDepositData = collection(db, "dashboard", "deposits", "bitcoin")
   const dashBoardbankWithdrawalData = collection(db, "dashboard", "withdrawals", "bitcoin")
   const dashBoardbitcoinWithdrawalData = collection(db, "dashboard", "withdrawals", "bitcoin")
-  const {authUser, loading } = useAuth();
   const router = useRouter();
 
   React.useEffect(() => {
-    if (!loading && !authUser) {
-      router.push('/login')
-      console.log("HAVE AN ACCOUNT")
-    }
     const getDashboardInfo = async () =>  {
       const res = await getDocs(dashBoardDepositData);
       const data: any = res.docs.map((doc : any) => ({...doc.data(), id: doc.id}))
@@ -53,11 +48,13 @@ const Dashboard = () => {
     getBitcoinDepositInfo()
     getBitcoinWithdrawalInfo()
     getBankWithdrawalInfo()
-  }, [dashBoardDepositData,dashBoardbitcoinDepositData, bitcoinDeposit,dashBoard,bankWithdrawal, bitcoinWithdrawal, dashBoardbitcoinWithdrawalData, dashBoardbankWithdrawalData, authUser, loading, router ])
+  }, [dashBoardDepositData,dashBoardbitcoinDepositData, bitcoinDeposit,dashBoard,bankWithdrawal, bitcoinWithdrawal, dashBoardbitcoinWithdrawalData, dashBoardbankWithdrawalData,router ])
   // const totalWithdrawalAmount = 
   const totalDepositAmount =  dashBoard[0]?.depositAmount + bitcoinDeposit[0]?.depositAmount
   const totalWithdrawalAmount = bitcoinWithdrawal[0]?.amount + bankWithdrawal[0]?.amount
+  
   return (
+    <ProtectedRoute>
     <div className="py-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-5">
         <h1 className="text-2xl font-semibold text-gray-900">Hello</h1>
@@ -84,6 +81,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
 )
 }
 export default Dashboard
