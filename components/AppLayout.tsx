@@ -3,8 +3,8 @@ import { Home, Folder, BarChart2, Bell,CreditCard, User } from 'react-feather';
 import Link from 'next/link';
 import ResponsiveSideBar from './ResponsiveSideBar';
 import Sidebar from './Sidebar';
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import { Button } from './Button';
+import { Menu, Transition } from '@headlessui/react'
+import Button from './Button';
 import { useAuth } from '../lib/AuthUserProvider';
 
 const navigation = [
@@ -79,8 +79,8 @@ const AppLayout = ({children } : AppProps) => {
                         <Menu.Item key={item.name}>
                           {({ active }) => (
                             <div className={classNames(
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
+                              active ? ' bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700 font-medium'
                               )}>
                                 <Link href={item.href}>
                                   <a>
@@ -93,9 +93,9 @@ const AppLayout = ({children } : AppProps) => {
                       ))}
                       <Menu.Item>
                       <div className={classNames(
-                              'block px-4 py-2 text-sm text-gray-700'
+                              'block font-medium py-2 text-sm text-gray-700'
                               )}>
-                                  <Button onClick={signOut}>
+                                  <Button className="text-sm" onClick={signOut}>
                                     Sign Out
                                   </Button>
                             </div>

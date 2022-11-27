@@ -23,6 +23,7 @@ const Dashboard = () => {
   React.useEffect(() => {
     if (!loading && !authUser) {
       router.push('/login')
+      console.log("HAVE AN ACCOUNT")
     }
     const getDashboardInfo = async () =>  {
       const res = await getDocs(dashBoardDepositData);

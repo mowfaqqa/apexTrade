@@ -21,7 +21,7 @@ const SubscriptionPlans = () => {
             </div>
             <Button 
             className="bg-white text-gray-600 hover:bg-gray-600 hover:text-white mb-4 mx-auto block border border-gray-500"
-            onClick={() => {router.push('/subscription')}}
+            onClick={() => {router.push('/login')}}
             >Subscribe</Button>
           </div>
           ))}

@@ -48,7 +48,7 @@ const About = () => {
           <div className='rounded-lg shadow-md p-6 flex flex-col justify-center items-center border border-gray-300'>
              <DollarSign size={40}/>
             <h4 className='text-center text-yellow-600 text-xl font-medium'>Anti DDOS Protection</h4>
-            <p className='text-gray-200 text-justify'>We are using one of the most professional and trsusted DDOs Protection and mitigation provider.</p>
+            <p className='text-gray-200 text-justify'>We are using one of the most professional and trusted DDOs Protection and mitigation provider.</p>
           </div>
           <div className='rounded-lg shadow-md p-6 flex flex-col justify-center items-center border border-gray-300'>
             <BarChart size={40} />
