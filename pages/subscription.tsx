@@ -10,7 +10,7 @@ const Subscription = () => {
             name : '',
             subscriptionPlan : '',
         },
-        validationSchema: ,
+        // validationSchema: ,
         onSubmit: (values) => {}
     })
   return (
