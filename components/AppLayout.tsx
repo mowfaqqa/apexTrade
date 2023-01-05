@@ -8,13 +8,6 @@ import Button from './Button';
 import { useAuth } from '../lib/context/authContext';
 import { useRouter } from 'next/router';
 
-
-const navigation = [
-    { name: 'Dashboard', href: '/dashboard', icon: Home, current: true },
-    { name: 'Deposit', href: '/deposit', icon: CreditCard, current: false },
-    { name: 'Withdrawal', href: '/withdraw', icon: Folder, current: false },
-    { name: 'Account', href: '/account', icon: User, current: false },
-  ]
   const userNavigation = [
     { name: 'Settings', href: '/profile' },
   ]

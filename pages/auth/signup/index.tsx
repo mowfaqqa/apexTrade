@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AuthLayout } from '../../../components/AuthLayout'
 import { InputField, SelectField } from '../../../components/Inputs'
 import Button from '../../../components/Button';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { useRouter } from 'next/router';
@@ -45,7 +45,7 @@ const SignUp = () => {
     const email = values.email;
     const password = values.newPassword
     const name = values.name
-    signUp(auth, email, password,)
+    signUp(email, password,)
   .then((userCredential : any) => {
     // Signed in 
     const user = userCredential?.user;

@@ -6,7 +6,7 @@ import Button from '../../../components/Button';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { useRouter } from 'next/router';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { app, database } from '../../../lib/firebase';
 import { ref, update } from 'firebase/database';
 import { notifySuccess, notifyError } from '../../../lib/notifications';
@@ -38,7 +38,7 @@ const Login = () => {
   onSubmit: (values) => {
     const email = values.email;
     const password = values.password
-    logIn(auth, email, password,)
+    logIn(email, password,)
   .then((userCredential : any) => {
     // Signed in 
     const user = userCredential.user;
