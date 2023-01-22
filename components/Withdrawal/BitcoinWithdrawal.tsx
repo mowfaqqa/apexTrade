@@ -5,15 +5,14 @@ import { InputField } from '../Inputs';
 import { notifySuccess, notifyError } from '../../lib/notifications';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
+import { addDoc, arrayUnion, collection, doc, setDoc, updateDoc } from 'firebase/firestore';
+import { auth, db } from '../../lib/firebase';
 
 const BitcoinWithdrawal = () => {
-    const withdrawalData = collection(db, "dashboard", "withdrawals", "bitcoin")
+    const userId = auth.currentUser?.uid
     const createBitcoinWithdrawalRequest = async (values : any) => {
-        await setDoc(doc(withdrawalData), values)
+        await updateDoc(doc(db, "USERS", userId!, "Withdrawals", "Bitcoin"), values,)
     }
-
     const formik = useFormik({
         initialValues : {
             walletAddress : '',
@@ -24,7 +23,10 @@ const BitcoinWithdrawal = () => {
             amount: yup.number().required().label('Amount')
         }),
         onSubmit: (values) => {
-            createBitcoinWithdrawalRequest(values).then(() => notifySuccess('Withdrawal Request Sent Successfully')).catch(() => notifyError("Ops something went wrong sending request"))
+            const val = {
+                withdrawal : arrayUnion(values) 
+            }
+            createBitcoinWithdrawalRequest(val).then(() => notifySuccess('Withdrawal Request Sent Successfully')).catch(() => notifyError("Ops something went wrong sending request"))
         }
     })
 
@@ -32,7 +34,7 @@ const BitcoinWithdrawal = () => {
     <div className='px-5'>
         <h1 className='font-bold text-base lg:text-2xl text-center'>Withdrawal Request with Bitcoin</h1>
         <div>
-        <p className='p-2 bg-orange-300 flex items-start  text-orange-500 text-lg font-medium'>
+        <p className='p-2 bg-orange-300/40 flex items-start  text-orange-500 text-lg font-medium'>
             <span className='mx-1 py-0.5'><AlertCircle size={20}/></span> Please note that minimum withdrawal amount is $500. contact support@apextrade.com for a more detailed description. Your account will be credited once payment is confirmed
         </p>
         <div>
