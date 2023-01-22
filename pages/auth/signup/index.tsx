@@ -7,11 +7,12 @@ import { getAuth } from "firebase/auth";
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { useRouter } from 'next/router';
-import { app, database } from '../../../lib/firebase';
+import { app, database, db } from '../../../lib/firebase';
 import { ref, set } from 'firebase/database';
 import { notifySuccess, notifyError } from '../../../lib/notifications';
 import { nationalities } from '../../../lib/constant';
 import { useAuth } from '../../../lib/context/authContext';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 const SignUp = () => {
   const auth = getAuth(app)
@@ -53,7 +54,12 @@ const SignUp = () => {
       name : name,
       email : email
     })
-    notifySuccess("Signup successfull")
+    setDoc(doc(db, "USERS", user.uid), values)
+    addDoc(collection(db, "USERS", user.uid, "dashboard"), {
+      totalDeposit : 0.00,
+      totalWithdrawal : 0.00,
+    })
+    notifySuccess("Signup successful")
     router.push('/dashboard');
     // ...
   })

@@ -1,3 +1,4 @@
+// ts-no-check
 import React from 'react'
 import { AlertCircle } from 'react-feather'
 import Button from '../Button';
