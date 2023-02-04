@@ -3,9 +3,10 @@ import React from 'react'
 
 const ImageComp = () => {
   return (
-    <div className='px-10 grid grid-cols-5 justify-around gap-5 max-w-[1500px] mx-auto py-4'>
+    <div className='px-10 grid grid-cols-2 md:grid-cols-5 items-center justify-around gap-8 max-w-[1500px] mx-auto'>
         {imageArray.map((img: any, index: number) => (
-            <span key={index}><Image src={img} width={200} height={100} alt='logo' /></span>
+            // eslint-disable-next-line @next/next/no-img-element
+            <span key={index}><img className='w-full h-full' src={img} alt='logo' /></span>
         ))}
     </div>
   )
