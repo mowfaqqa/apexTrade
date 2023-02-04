@@ -3,6 +3,7 @@ import AppLayout from '../components/AppLayout';
 import Tab from '../components/Tab';
 import BitcoinWithdrawal from '../components/Withdrawal/BitcoinWithdrawal';
 import WithdrawalTransfer from '../components/Withdrawal/WithdrawalTransfer';
+import WithdrawalHistory from '../components/Withdrawal/WithdrawalHistory';
 
 const Withdrawal = () => {
     const TABS = React.useMemo(
@@ -14,6 +15,10 @@ const Withdrawal = () => {
             {
                 label: "Withdrawal Request (Bank Transfer)",
                 content: <WithdrawalTransfer />
+            },
+            {
+                label: "Withdrawal History",
+                content: <WithdrawalHistory />
             },
         ],[]
     )

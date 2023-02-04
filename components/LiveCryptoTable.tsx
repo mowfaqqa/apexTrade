@@ -9,11 +9,10 @@ const CryptoTable = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=15&page=1&sparkline=false"
       )
       .then((res) => {
         setMoedas(res.data);
-        console.log(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -26,15 +25,16 @@ const CryptoTable = () => {
     moeda.name.toLowerCase().includes(search.toLowerCase())
   );
   return (
-    <div className="moeda-app">
-      <div className="moeda-search">
-        <h1 className="moeda-text">CryptoSearch</h1>
+    <div className="text-white moeda-app bg-[url('/assets/hero.jpg')] bg-repeat-x bg-top">
+      <div className="backdrop-blur-[2px] bg-black/40 py-8">
+      <div className="moeda-search z-40 px-10">
+        <h1 className="moeda-text text-center font-bold text-3xl py-3">Crypto Search</h1>
         <form>
           <input
-            className="moeda-input"
+            className="moeda-input border border-gray-300 text-center border-solid rounded-md py-3 px-4 w-full bg-white"
             type="text"
             onChange={handleChange}
-            placeholder="Exemplo: Bitcoin Cash"
+            placeholder=" type in a crypto currency"
           />
         </form>
       </div>
@@ -53,6 +53,7 @@ const CryptoTable = () => {
         );
       })}
     </div>
+            </div>
   );
 }
 export default CryptoTable;

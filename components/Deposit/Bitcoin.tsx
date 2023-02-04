@@ -17,7 +17,7 @@ import { auth, db } from "../../lib/firebase";
 const Bitcoin = () => {
   const userId = auth.currentUser?.uid;
   const createBitcoinDeposit = async (values: any) => {
-    await updateDoc(doc(db, "USERS", userId!, "Deposits", "bitcoin"), values, {
+    await setDoc(doc(db, "USERS", userId!, "Deposits", "bitcoin"), values, {
       merge: true,
     });
   };
@@ -43,7 +43,7 @@ const Bitcoin = () => {
       };
       createBitcoinDeposit(val)
         .then(() => notifySuccess("Request Sent Sucessfully"))
-        .catch(() => notifyError("Deposit Request Failed !!"));
+        .catch((error) => notifyError(error));
     },
   });
   return (

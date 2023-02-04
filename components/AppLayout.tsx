@@ -110,7 +110,7 @@ const AppLayout = ({children } : AppProps) => {
                 </Menu>              
             </div>
           </div>
-          <div>
+          <div className="bg-[url('/assets/apexlogo-light.png')] bg-cover bg-top">
             {children}
           </div>
          </div>

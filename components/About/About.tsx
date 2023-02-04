@@ -8,9 +8,9 @@ import ImageComp from '../ImageComp'
 const About = () => {
   const router = useRouter()
   return (
-    <div className="">
+    <div className="bg-[url('/assets/apexlogo-light.png')] bg-repeat-x bg-top">
     <div>
-      <div className='max-w-7xl mx-auto px-5'>
+      <div className="max-w-7xl mx-auto px-5 relative ">
         <div className='grid grid-cols-1 md:grid-cols-3 items-center justify-center py-4'>
         <div className='my-4 mx-4'>
             <Image src="/assets/bitcoin.jpg" width={400} height={300} alt="bitcoin" />
