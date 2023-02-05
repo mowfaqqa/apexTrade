@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
+    "@lottiefiles/react-lottie-player": "^3.5.2",
     "axios": "^1.1.2",
     "chart.js": "^3.9.1",
     "clsx": "^1.2.1",

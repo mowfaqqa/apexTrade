@@ -12,7 +12,7 @@ const Hamburger = () => {
                 <div>
                     <ul>
                         <li>
-                            <Link href="/" passHref>
+                            <Link href="/home" passHref>
                             <span className='cursor-pointer'> Home</span>
                             </Link>
                         </li>

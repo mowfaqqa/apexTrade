@@ -7,7 +7,6 @@ import Consultants from "../components/Consultants/Consultants";
 import Procedure from "../components/HowItWorks/Procedure";
 import Navbar from "../components/Navbar";
 import SubscriptionPlans from "../components/SubscriptionPlans/SubscriptionPlans";
-import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import ResNavbar from "../components/ResponsiveNavbar";
 import Footer from "../components/Footer";
@@ -15,7 +14,6 @@ import CryptoTable from "../components/LiveCryptoTable";
 import ImageComp from "../components/ImageComp";
 import Achievements from "../components/Achievements";
 import { notifyInfo, notifySuccess } from "../lib/notifications";
-import { Player } from "@lottiefiles/react-lottie-player";
 
 const NAMES = [
   { name: "Jessica Walt", price: 2000 },
@@ -55,25 +53,24 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-[100vh] overflow-x-hidden bg-yellow-200/20">
-        <div className="flex flex-col justify-center items-center mt-10 mx-8 md:mx-36">
-         
-          <Player
-            autoplay
-            loop
-            src="https://assets3.lottiefiles.com/packages/lf20_ystsffqy.json"
-            background="transparent"
-            style={{ height: "524px", width: "624px" }}
-          ></Player>
+      <div className="h-[100vh] overflow-x-hidden bg-[url('/assets/showcase.jpg')] bg-cover bg-no-repeat">
+        <Navbar />
+        <ResNavbar />
+        <div className="flex flex-col justify-center mt-32 md:mt-52 mx-8 md:mx-36">
+          <h1 className="text-yellow-600 text-5xl font-bold">
+            APEXTRADER- TRADING EFFICIENTLY, SECURELY AND RELIABLE
+          </h1>
+          <div>
             <Button
               className="bg-yellow-500 text-white mt-4"
-              onClick={() => router.push("/home")}
+              onClick={() => router.push("/auth/signup")}
             >
-            Lets Get Started
+              JOIN US
             </Button>
+          </div>
         </div>
       </div>
-      {/* <div className="overflow-hidden">
+      <div className="overflow-hidden">
         <About />
         <CryptoTable />
         <Procedure />
@@ -82,7 +79,7 @@ const Home: NextPage = () => {
         <Consultants />
         <ImageComp />
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 };
