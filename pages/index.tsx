@@ -56,17 +56,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-[100vh] overflow-x-hidden bg-yellow-200/20">
-        <div className="flex flex-col justify-center items-center mt-10 mx-8 md:mx-36">
-         
+        <div className="flex flex-col justify-center items-center mt-10 mx-20 md:mx-36">
+
           <Player
             autoplay
             loop
             src="https://assets3.lottiefiles.com/packages/lf20_ystsffqy.json"
             background="transparent"
-            style={{ height: "524px", width: "624px" }}
+            style={{ height: "324px", width: "424px" }}
           ></Player>
             <Button
-              className="bg-yellow-500 text-white mt-4"
+              className="bg-yellow-500 text-white my-14"
               onClick={() => router.push("/home")}
             >
             Lets Get Started
