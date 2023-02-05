@@ -31,7 +31,7 @@ const CryptoTable = () => {
         <h1 className="moeda-text text-center font-bold text-3xl py-3">Crypto Search</h1>
         <form>
           <input
-            className="moeda-input border border-gray-300 text-center border-solid rounded-md py-3 px-4 w-full bg-white"
+            className="moeda-input border text-gray-800 border-gray-300 text-center border-solid rounded-md py-3 px-4 w-full bg-white"
             type="text"
             onChange={handleChange}
             placeholder=" type in a crypto currency"

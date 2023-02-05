@@ -16,10 +16,6 @@ const Withdrawal = () => {
                 label: "Withdrawal Request (Bank Transfer)",
                 content: <WithdrawalTransfer />
             },
-            {
-                label: "Withdrawal History",
-                content: <WithdrawalHistory />
-            },
         ],[]
     )
   return (

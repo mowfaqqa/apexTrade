@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Home, CreditCard, Folder, User } from "react-feather";
+import { Home, CreditCard, Folder, User, BarChart2 } from "react-feather";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
@@ -11,6 +11,7 @@ const Sidebar = () => {
     { name: "Deposits", href: "/deposits", icon: CreditCard, current: false },
     { name: "Withdrawal", href: "/withdrawal", icon: Folder, current: false },
     { name: "Account", href: "/profile", icon: User, current: false },
+    { name: "Transaction History", href: "/transaction", icon: BarChart2, current: false },
   ];
   const classNames = (...classes: any) => {
     return classes.filter(Boolean).join(" ");
