@@ -69,7 +69,7 @@ const Dashboard = () => {
                 Mined Profit : {dashboard[0]?.profit ?? 0.0}
               </h1>
             </div>
-            <div className="bg-white border py-5 md:py-0 h-full lg:h-[25vh] px-1 border-gray-400 rounded-lg my-4 w-full md:w-[35%] text-center flex flex-col items-center justify-center text-sm">
+            <div className="bg-white text-white backdrop-blur-[2px] border py-5 md:py-0 h-full lg:h-[25vh] px-1 bg-[url('/assets/cryptochart.jpg')] bg-cover bg-center bg-no-repeat border-gray-400 rounded-lg my-4 w-full md:w-[35%] text-center flex flex-col items-center justify-center text-sm">
               <h1 className="text-2xl font-semibold">Binance BTC/USD</h1>
               <div className="flex flex-col">
                 <span>Last Price - $ 9, 671,789</span>
